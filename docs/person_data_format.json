@@ -1,0 +1,11 @@
+{
+    "id": "unique_id", 
+    "face_encoding": "N-dimensional encoding", 
+    "image": "image.jpg", 
+    "data": {
+        "name": null, 
+        "dob": null, 
+        "gender": null, 
+        "...": "..."
+    }
+}

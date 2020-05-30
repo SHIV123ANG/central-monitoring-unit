@@ -1,0 +1,39 @@
+{
+    "status_codes":{
+        "success": 10, 
+        "password_required": 11, 
+        "insufficient_data": 12, 
+        "unauthorized_loader": 13, 
+        "revoked_token_loader": 14, 
+        "invalid_token_loader": 15, 
+        "expired_token_loader": 16, 
+        "needs_fresh_token_loader": 17, 
+        "invalid_credentials": 18, 
+        "image_not_found": 19, 
+        "file_not_found_in_request": 20, 
+        "file_extension_error": 21, 
+        "person_not_found": 22, 
+        "starred_persons_limit_reached": 23, 
+        "task_not_found": 24, 
+        "task_not_completed": 25
+    }, 
+
+    "response_messages" : {
+        "success": "Request successful.", 
+        "password_required": "Password required.", 
+        "insufficient_data": "Insufficient data sent in request to be processed.", 
+        "unauthorized_loader" : "JWT tokens not found in payload.", 
+        "revoked_token_loader" : "User has been blacklisted.", 
+        "invalid_token_loader" : "Invalid token found. Please do not alter the token.", 
+        "expired_token_loader" : "Token has expired. Please login again.", 
+        "needs_fresh_token_loader" : "A fresh token is required to perform this operation. Please provide password.", 
+        "invalid_credentials": "Invalid Credentials.", 
+        "image_not_found": "Image not found.", 
+        "file_not_found_in_request": "No file found in request data.", 
+        "file_extension_error": "Extension of file should be jpg, jpeg or png.", 
+        "person_not_found": "Person not found.", 
+        "starred_persons_limit_reached": "Starred persons limit reached.", 
+        "task_not_found": "task not found.", 
+        "task_not_completed": "task not completed."
+    }
+}

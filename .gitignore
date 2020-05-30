@@ -1,0 +1,4 @@
+**/__pycache__
+**/temp
+**/data
+**/face_encoder/saved_models/ArcFace-ResNet50.pt

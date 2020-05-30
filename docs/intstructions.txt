@@ -1,0 +1,102 @@
+authentication error codes:
+    13, 14, 15, 16, 17
+
+insufficient data error codes:
+    12
+
+request:
+    access_token: "access_token" # Except login
+
+response:
+    status_code: < one of response codes >
+    message: < some response message >
+
+/:
+    request:
+        
+    response:
+        "cpu_percent": < cpu percent > 
+        "cpu_frequency": < cpu frequency MHz> 
+        "cpu_count": < logical core count of cpu >
+        "total_memory": < total system memory MB > 
+        "available_memory": < available system memory MB > 
+        "total_swap": < total size of swap area MB > 
+        "available_swap": < available swap area MB > 
+        "total_disk": < total disk space GB > 
+        "available_disk": < available disk space GB > 
+        "total_tasks": < total tasks at server > 
+        "completed_tasks": < completed tasks at server >
+
+login:
+    request:
+        username: < username >
+        password: < password >
+    response:
+        access_token: < access_token >
+
+get-fresh-token:
+    request:
+        password: < password >
+    response:
+        access_token: access_token
+
+get-face-image:
+    request: 
+        image_name: < image_name >
+    response:
+        image_data: < UTF-8 decoded base64 data of image or error code image_not_found >
+
+get-person-data:
+    request:
+        id: < id of person >
+    response:
+        data: < person data if id is correct else null or error code person_not_found. 
+                image field contains binary image >
+
+detect-faces:
+    request:
+        image_name: < name of image >
+        image_data: < UTF-8 decoded base64 data of image >
+    response:
+        bboxes: < A list of bboxes where each bbox in format (x1, y1, x2, y2) >
+
+search-matching-faces:
+    request:
+        image_name: < name of image >
+        image_data: < UTF-8 decoded base64 data of image >
+        bboxes: < A list of SELECTED bboxes where each bbox in format (x1, y1, x2, y2) >
+    response:
+        token: < a unique token that can be used to check progress of task and get result >
+
+get-task-progress:
+    request:
+        token: < a unique token that can be used to check progress of task and get result >
+    response:
+        "progress": < float value in [0, 1] if key is correct else null >
+
+get-task-result:
+    request:
+        token: < a unique token that can be used to check progress of task and get result >
+    response:
+        result: < if task is finished then a list of results where each result is a json
+                    with keys bbox and matched_faces. matched_faces value is a list of id 
+                    of matched persons. if task is not finished then false. if key is incorrect
+                    then null >
+
+search-person:
+    request:
+        name: < name of person to search for >
+    response:
+        "result": < a list of person data whose name matches. image field contains binary image >
+
+add-star-to-person:
+    request:
+        id: < id of person to add star to >
+    response:
+        "result": < true if star limit not reached else false >
+
+remove-star-from-person:
+    request:
+        id: < id of person to add star to >
+    response:
+        "result": < true >
